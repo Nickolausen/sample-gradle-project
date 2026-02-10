@@ -12,7 +12,6 @@ plugins {
      * The runnable jar will be found in build/libs/projectname-all.jar
      */
     id("com.gradleup.shadow") version "9.3.1"
-    id("org.danilopianini.gradle-java-qa") version "1.166.0"
 }
 
 repositories { // Where to search for dependencies
@@ -20,12 +19,8 @@ repositories { // Where to search for dependencies
 }
 
 dependencies {
-    // Suppressions for SpotBugs
-    compileOnly("com.github.spotbugs:spotbugs-annotations:4.9.8")
-
     // Maven dependencies are composed by a group name, a name and a version, separated by colons
-    implementation("com.omertron:API-OMDB:1.5")
-    implementation("org.jooq:jool:0.9.15")
+    // e.g. implementation("com.omertron:API-OMDB:1.5")
 
     /*
      * Simple Logging Facade for Java (SLF4J)
@@ -45,7 +40,7 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass.set("it.unibo.sampleapp.RateAMovie")
+    mainClass.set("it.mypckg.sampleapp.AppLauncher")
 }
 
 tasks.withType<Test>().configureEach {
